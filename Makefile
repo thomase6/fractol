@@ -1,7 +1,7 @@
 NAME := fractol
 
 #ingredients
-SRC = src/main.c
+SRCS = src/main.c
 OBJS = src/main.o
 LIBFT_DIR = include/libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
@@ -32,10 +32,12 @@ $(LIBFT_LIB):
 clean:
 	$(RM) $(OBJS)
 	$(LM) $(LIBFT_DIR) clean
+	$(info sweep sweep)
 
 fclean: clean
 	$(RM) $(NAME)
 	$(LM) $(LIBFT_DIR) fclean
+	$(info SWEEP SWEEP)
 
 re:
 	$(MAKE) fclean
