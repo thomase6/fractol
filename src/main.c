@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "/home/texenber/CC/fractol_wip/include/libft/libft.h"
 
 int main(int ac, char **av)
 {

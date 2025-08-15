@@ -1,31 +1,39 @@
 NAME := fractol
 
 #ingredients
-SRCS = src/main.c
-OBJS = src/main.o
+SRC_DIR := src
+OBJ_DIR := obj
+SRCS := \
+	window.c
+SRCS := $(SRCS:%=$(SRC_DIR)/%)
+OBJS := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+
 LIBFT_DIR = include/libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 
 CC := cc
 CFLAGS := -g -Wall -Werror -Wextra
-CPPFLAGS := -I $(LIBFT_DIR)
+CPPFLAGS := -I$(LIBFT_DIR)
+LIBS := -lmlx -lX11 -lXext -lm
 
 #utensils
 RM := rm -f 
 LM := make -C 
 MAKEFLAGS += --no-print-directory
+DIR_DUP = mkdir -p $(@D)
 
 #recipe
 all: $(LIBFT_LIB) $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(CPPFLAGS) $^ -L$(LIBFT_DIR) -lft -o $@
+	$(CC) $(CFLAGS) $(CPPFLAGS) $^ -L$(LIBFT_DIR) -lft $(LIBS) -o $@
 	$(info CREATED $(NAME))
 
 $(LIBFT_LIB):
 	$(LM) $(LIBFT_DIR)
 
-%.o: %.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(DIR_DUP)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 	$(info CREATED $@)
 
