@@ -14,11 +14,12 @@
 # define FRACTOL_H
 
 // window size
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIDTH 500
+# define HEIGHT 500
 
 // libraries
 #include <mlx.h>
+#include <stdlib.h>
 
 typedef struct s_data
 {

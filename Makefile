@@ -15,7 +15,7 @@ MLX_DIR := include/minilibx
 MLX_LIB := $(MLX_DIR)/minilibx.a
 
 CC := cc
-CFLAGS := #-g -Wall -Werror -Wextra
+CFLAGS := -g #-Wall -Werror -Wextra
 CPPFLAGS := -I$(LIBFT_DIR) -I$(MLX_DIR)
 LIBS := -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
 

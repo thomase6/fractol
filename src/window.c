@@ -24,13 +24,24 @@ int main(void)
 {
     void *mlx;
     void *mlx_win;
-    t_data  img;  
+    t_data  img;
+    int x = WIDTH * 0.1;
+    int y = HEIGHT * 0.1;  
 
     mlx = mlx_init();
     mlx_win = mlx_new_window(mlx, WIDTH, HEIGHT, "The Void");
     img.img = mlx_new_image(mlx, WIDTH, HEIGHT);
     img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line_length, &img.endian);
-    my_mlx_put_pixel(&img, 5, 5, 0x00FF0000);
+    while (y < HEIGHT * 0.9)
+    {
+        x = WIDTH * 0.1;
+        while (x < WIDTH * 0.9)
+        {
+            my_mlx_put_pixel(&img, x, y, 0x00FF00);
+            x++;
+        }
+        y++;
+    }
     mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
     mlx_loop(mlx);
 }
