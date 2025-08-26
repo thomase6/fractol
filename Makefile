@@ -7,7 +7,8 @@ SRCS := \
 	main.c				\
 	window.c			\
 	utils.c				\
-	fractal_render.c	
+	fractal_render.c	\
+	event_handler.c     
 SRCS := $(SRCS:%=$(SRC_DIR)/%)
 OBJS := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

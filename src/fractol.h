@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: texenber <texenber@student.42vienna.c      +#+  +:+       +#+        */
+/*   By: texenber <texenber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:01:46 by texenber          #+#    #+#             */
-/*   Updated: 2025/08/15 11:01:51 by texenber         ###   ########.fr       */
+/*   Updated: 2025/08/26 15:59:01 by texenber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,10 @@ void    handle_pixel(int x, int y, t_data *data);
 void my_mlx_put_pixel(t_img *img, int x, int y, int color);
 
 // *** mlx hook functions ***
+void event_handler(t_data *data);
 int key_press(int keycode, t_data *data);
+// int mouse_press(int keycode, t_data *data);
+// int close_x(t_data *data);
 
 // *** utils ***
 double map(double unscaled_num, double new_max, double new_min, double old_max, double old_min);
