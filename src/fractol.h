@@ -33,7 +33,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
-#include "/home/texenber/CC/fractol_wip/include/libft/libft.h"
+#include "/home/texenber/CC/fractol/include/libft/libft.h"
 
 typedef struct s_complex
 {
