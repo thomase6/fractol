@@ -11,15 +11,21 @@
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <mlx.h>
 
 int main(int ac, char **av)
 {
+    t_data  data;
+
     if ((ac == 2 && !ft_strncmp(av[1], "mandelbrot\0", 11)) 
         || (ac == 4 && !ft_strncmp(av[1], "julia\0", 6)))
     {
-//        printf ("valid input"); //gotta remove this later
-        
-        return (0);
+        // printf ("valid input\n"); //gotta remove this later
+        data.name = av[1];
+        // printf ("fractal name: %s", data.name);
+        window_init(&data);
+        fractal_render(&data);
+        mlx_loop(data.mlx);
     }
     else 
     {

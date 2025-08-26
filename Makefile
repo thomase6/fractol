@@ -4,8 +4,10 @@ NAME := fractol
 SRC_DIR := src
 OBJ_DIR := obj
 SRCS := \
-	main.c	\
-	window.c
+	main.c				\
+	window.c			\
+	utils.c				\
+	fractal_render.c	
 SRCS := $(SRCS:%=$(SRC_DIR)/%)
 OBJS := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

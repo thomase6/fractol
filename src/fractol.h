@@ -19,8 +19,14 @@
 
 // x11 keycodes
 # define ESC 65307
-# define B 98
-# define G 103
+
+// colors
+# define BLACK 0x000000
+# define WHITE 0xFFFFFF
+# define GREEN 0x00FF00
+# define RED 0xFF0000
+# define BLUE 0x0000FF
+# define COOLBLUE 0x0066FF
 
 // libraries
 #include <mlx.h>
@@ -28,6 +34,12 @@
 #include <unistd.h>
 #include <stdio.h>
 #include "/home/texenber/CC/fractol_wip/include/libft/libft.h"
+
+typedef struct s_complex
+{
+    double  x;
+    double  y;
+}           t_complex;
 
 typedef struct s_img
 {
@@ -40,13 +52,40 @@ typedef struct s_img
 
 typedef struct s_data
 {
+    char    *name;
     void    *mlx;
     void    *win;
     t_img   img;
-}               t_data;
+    // hook variables // TO DO
+    double  escape_value;
+    int     iter_def;
+}           t_data;
 
-int window(void);
+
 int main(int ac, char **av);
+
+// *** libft functions used ***
 int ft_strncmp(const char *s1, const char *s2, size_t n);
+
+// *** window creation ***
+void window_init(t_data *data);
+
+// *** fractal render ***
+void fractal_render(t_data *data);
+
+// *** color the screen ***
+void    handle_pixel(int x, int y, t_data *data);
+void my_mlx_put_pixel(t_img *img, int x, int y, int color);
+
+// *** mlx hook functions ***
+int key_press(int keycode, t_data *data);
+
+// *** utils ***
+double map(double unscaled_num, double new_max, double new_min, double old_max, double old_min);
+t_complex square_complex(t_complex z);
+t_complex sum_complex(t_complex z1, t_complex z2);
+
+// *** free and destroy ***
+int ft_exit(t_data *data);
 
 #endif
