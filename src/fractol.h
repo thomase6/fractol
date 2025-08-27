@@ -6,7 +6,7 @@
 /*   By: texenber <texenber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:01:46 by texenber          #+#    #+#             */
-/*   Updated: 2025/08/26 15:59:01 by texenber         ###   ########.fr       */
+/*   Updated: 2025/08/27 14:49:46 by texenber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,18 @@
 # define FRACTOL_H
 
 // window size
-# define WIDTH 500
-# define HEIGHT 500
+# define WIDTH 800
+# define HEIGHT 800
 
 // x11 keycodes
 # define ESC 65307
+# define LEFT 65361
+# define UP 65362
+# define RIGHT 65363
+# define DOWN 65364
+# define PLUS 65451
+# define MINUS 65453
+
 
 // colors
 # define BLACK 0x000000
@@ -59,6 +66,8 @@ typedef struct s_data
     // hook variables // TO DO
     double  escape_value;
     int     iter_def;
+    double  shift_x;
+    double  shift_y;
 }           t_data;
 
 
@@ -80,8 +89,8 @@ void my_mlx_put_pixel(t_img *img, int x, int y, int color);
 // *** mlx hook functions ***
 void event_handler(t_data *data);
 int key_press(int keycode, t_data *data);
-// int mouse_press(int keycode, t_data *data);
-// int close_x(t_data *data);
+int mouse_press(int keycode, t_data *data);
+int close_x(t_data *data);
 
 // *** utils ***
 double map(double unscaled_num, double new_max, double new_min, double old_max, double old_min);
