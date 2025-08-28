@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_render.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: texenber <texenber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: texenber <texenber@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 09:59:33 by texenber          #+#    #+#             */
-/*   Updated: 2025/08/27 14:28:28 by texenber         ###   ########.fr       */
+/*   Updated: 2025/08/28 10:37:07 by texenber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,19 @@ void my_mlx_put_pixel(t_img *img, int x, int y, int color)
     dst = img->addr + (y * img->line_len + x * (img->bpp / 8));
     *(unsigned int*)dst = color;
 }
-
+void    julia_check(t_complex *z, t_complex *c, t_data *data)
+{
+    if (!ft_strncmp(data->name, "julia\0", 6))
+    {
+        c->x = data->j_x;
+        c->y = data->j_y;
+    }
+    else
+    {
+        c->x = z->x;
+        c->y = z->y;
+    }
+}
 void    handle_pixel(int x, int y, t_data *data)
 {
     t_complex   z;
@@ -28,12 +40,13 @@ void    handle_pixel(int x, int y, t_data *data)
     int         color;
 
     i = 0;
-    z.x = 0.0;
-    z.y = 0.0;
+    // z.x = 0.0;
+    // z.y = 0.0;
 
-    c.x = map(x, +2, -2, WIDTH, 0) + data->shift_x;
-    c.y = map(y, -2, +2, HEIGHT, 0) + data->shift_y;
+    z.x = (map(x, +2, -2, WIDTH, 0) * data->zoom) + data->shift_x;
+    z.y = (map(y, -2, +2, HEIGHT, 0) * data->zoom) + data->shift_y;
     // iterations until escape
+    julia_check(&z, &c, data);
     while (i < data->iter_def)
     {
         z = sum_complex(square_complex(z), c);

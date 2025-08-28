@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: texenber <texenber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: texenber <texenber@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:01:46 by texenber          #+#    #+#             */
-/*   Updated: 2025/08/27 14:49:46 by texenber         ###   ########.fr       */
+/*   Updated: 2025/08/28 10:31:06 by texenber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define FRACTOL_H
 
 // window size
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 500
+# define HEIGHT 500
 
 // x11 keycodes
 # define ESC 65307
@@ -68,6 +68,9 @@ typedef struct s_data
     int     iter_def;
     double  shift_x;
     double  shift_y;
+    double  zoom;
+    double  j_x;
+    double  j_y;
 }           t_data;
 
 
@@ -75,6 +78,7 @@ int main(int ac, char **av);
 
 // *** libft functions used ***
 int ft_strncmp(const char *s1, const char *s2, size_t n);
+double	ft_atof(char *str);
 
 // *** window creation ***
 void window_init(t_data *data);
@@ -89,8 +93,7 @@ void my_mlx_put_pixel(t_img *img, int x, int y, int color);
 // *** mlx hook functions ***
 void event_handler(t_data *data);
 int key_press(int keycode, t_data *data);
-int mouse_press(int keycode, t_data *data);
-int close_x(t_data *data);
+int mouse_press(int button,int x,int y, t_data *data);
 
 // *** utils ***
 double map(double unscaled_num, double new_max, double new_min, double old_max, double old_min);

@@ -3,21 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: texenber <texenber@student.42vienna.c      +#+  +:+       +#+        */
+/*   By: texenber <texenber@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 13:30:15 by texenber          #+#    #+#             */
-/*   Updated: 2025/05/25 07:39:59 by texenber         ###   ########.fr       */
+/*   Updated: 2025/08/28 10:56:12 by texenber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
 # include <stdlib.h>
 # include <unistd.h>
 
+double	ft_atof(char *str);
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
+int     ft_is_space(char c);
 int		ft_isalnum(int i);
 int		ft_isalpha(int i);
 int		ft_isascii(int i);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: texenber <texenber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: texenber <texenber@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:17:59 by texenber          #+#    #+#             */
-/*   Updated: 2025/08/27 14:54:22 by texenber         ###   ########.fr       */
+/*   Updated: 2025/08/28 08:57:03 by texenber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void    data_init(t_data *data)
     data->iter_def = 200;
     data->shift_x = 0.0;
     data->shift_y = 0.0;
+    data->zoom = 1.0;
 }
 
 int ft_exit(t_data *data)
