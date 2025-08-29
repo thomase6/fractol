@@ -6,7 +6,7 @@
 /*   By: texenber <texenber@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 09:33:34 by texenber          #+#    #+#             */
-/*   Updated: 2025/08/28 10:48:02 by texenber         ###   ########.fr       */
+/*   Updated: 2025/08/29 08:08:06 by texenber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ double	ft_atof(char *str)
     {
         pow /= 10;
         fractional_part = fractional_part + (str[i] - 48) * pow;
+        i++;
     }
     return ((integer_part + fractional_part) * sign);
 }

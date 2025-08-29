@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   math_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: texenber <texenber@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/26 10:18:36 by texenber          #+#    #+#             */
-/*   Updated: 2025/08/28 08:35:15 by texenber         ###   ########.fr       */
+/*   Created: 2025/08/29 13:42:54 by texenber          #+#    #+#             */
+/*   Updated: 2025/08/29 14:05:40 by texenber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-double map(double unscaled_num, double new_max, double new_min, double old_max, double old_min)
+double map(double unscaled_num, double new_max, double new_min, double old_max)
 {
-    return ((new_max - new_min) * (unscaled_num - old_min) / (old_max - old_min) + new_min);
+    return ((new_max - new_min) * (unscaled_num - 0) / (old_max - 0) + new_min);
 }
 t_complex sum_complex(t_complex z1, t_complex z2)
 {

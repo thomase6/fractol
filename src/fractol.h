@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: texenber <texenber@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/15 11:01:46 by texenber          #+#    #+#             */
-/*   Updated: 2025/08/28 10:31:06 by texenber         ###   ########.fr       */
+/*   Created: 2025/08/29 08:49:44 by texenber          #+#    #+#             */
+/*   Updated: 2025/08/29 16:20:34 by texenber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # define DOWN 65364
 # define PLUS 65451
 # define MINUS 65453
+# define SCROLLUP 4
+# define SCROLLDOWN 5
 
 
 // colors
@@ -38,9 +40,8 @@
 // libraries
 #include <mlx.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-#include "/home/texenber/CC/fractol/include/libft/libft.h"
+#include "../include/libft/libft.h"
+#include "../include/printf/libftprintf.h"
 
 typedef struct s_complex
 {
@@ -59,48 +60,47 @@ typedef struct s_img
 
 typedef struct s_data
 {
-    char    *name;
-    void    *mlx;
-    void    *win;
-    t_img   img;
-    // hook variables // TO DO
-    double  escape_value;
-    int     iter_def;
-    double  shift_x;
-    double  shift_y;
-    double  zoom;
-    double  j_x;
-    double  j_y;
-}           t_data;
+    char        *name;
+    void        *mlx;
+    void        *win;
+    t_img       img;
+    double      escape_value;
+    int         iter_def;
+    double      shift_x;
+    double      shift_y;
+    double      zoom;
+    double      j_x;
+    double      j_y;
+}               t_data;
 
+int         main(int ac, char **av);
 
-int main(int ac, char **av);
+// *** libft and printf functions ***
+int         ft_strncmp(const char *s1, const char *s2, size_t n);
+size_t      ft_strlen(const char *s);
+int         ft_printf(const char *format, ...);
+double      ft_atof(char *str);
 
-// *** libft functions used ***
-int ft_strncmp(const char *s1, const char *s2, size_t n);
-double	ft_atof(char *str);
+// *** mlx_utils.c ***
+void        data_init(t_data *data);
+void        event_handler(t_data *data);
+int         key_press(int keycode, t_data *data);
+int         mouse_press(int button,int x,int y, t_data *data);
+int         ft_exit(t_data *data);
 
-// *** window creation ***
-void window_init(t_data *data);
+// *** window_init.c ***
+void        window_init(t_data *data);
 
-// *** fractal render ***
-void fractal_render(t_data *data);
+// *** math_utils.c ***
+double      map(double unscaled_num, double new_max, double new_min, double old_max);
+t_complex   sum_complex(t_complex z1, t_complex z2);
+t_complex   square_complex(t_complex z);
 
-// *** color the screen ***
-void    handle_pixel(int x, int y, t_data *data);
-void my_mlx_put_pixel(t_img *img, int x, int y, int color);
-
-// *** mlx hook functions ***
-void event_handler(t_data *data);
-int key_press(int keycode, t_data *data);
-int mouse_press(int button,int x,int y, t_data *data);
-
-// *** utils ***
-double map(double unscaled_num, double new_max, double new_min, double old_max, double old_min);
-t_complex square_complex(t_complex z);
-t_complex sum_complex(t_complex z1, t_complex z2);
-
-// *** free and destroy ***
-int ft_exit(t_data *data);
+// *** fractal_render ***
+void        fractal_render(t_data *data);
+void        handle_pixel(int x, int y, t_data *data);
+void        my_mlx_put_pixel(t_img *img, int x, int y, int color);
+void        mandelbrot(t_complex z, int x, int y, t_data *data);
+void        julia(t_complex z, int x, int y, t_data *data);
 
 #endif
