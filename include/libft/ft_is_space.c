@@ -6,13 +6,13 @@
 /*   By: texenber <texenber@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 09:45:24 by texenber          #+#    #+#             */
-/*   Updated: 2025/08/28 09:47:52 by texenber         ###   ########.fr       */
+/*   Updated: 2025/08/31 11:11:29 by texenber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
-int ft_is_space(char c)
+int	ft_is_space(char c)
 {
-    return(c == 32 || (c >= 9 && c <= 13));
+	return (c == 32 || (c >= 9 && c <= 13));
 }

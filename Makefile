@@ -15,7 +15,7 @@ OBJS := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 LIBFT_DIR := include/libft
 LIBFT_LIB := $(LIBFT_DIR)/libft.a
 
-PRINTF_DIR := include/printf
+PRINTF_DIR := include/ft_printf
 PRINTF_LIB := $(PRINTF_DIR)/libftprintf.a
 
 MLX_DIR := include/minilibx
@@ -57,6 +57,7 @@ clean:
 	$(RM) $(OBJS)
 	$(LM) $(LIBFT_DIR) clean
 	$(LM) $(PRINTF_DIR) clean
+	rm -r $(OBJ_DIR)
 	$(info sweep sweep)
 
 fclean: clean
