@@ -22,7 +22,7 @@ MLX_DIR := include/minilibx
 MLX_LIB := $(MLX_DIR)/minilibx.a
 
 CC := cc
-CFLAGS := -g #-Wall -Werror -Wextra
+CFLAGS := -Wall -Werror -Wextra
 CPPFLAGS := -I$(LIBFT_DIR) -I$(MLX_DIR) -I$(PRINTF_DIR)
 LIBS := -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
 
@@ -57,13 +57,13 @@ clean:
 	$(RM) $(OBJS)
 	$(LM) $(LIBFT_DIR) clean
 	$(LM) $(PRINTF_DIR) clean
-	rm -r $(OBJ_DIR)
 	$(info sweep sweep)
 
 fclean: clean
 	$(RM) $(NAME)
 	$(LM) $(LIBFT_DIR) fclean
 	$(LM) $(PRINTF_DIR) fclean
+	rm -r $(OBJ_DIR)
 	$(info SWEEP SWEEP)
 
 re:
