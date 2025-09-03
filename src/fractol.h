@@ -6,7 +6,7 @@
 /*   By: texenber <texenber@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 08:49:44 by texenber          #+#    #+#             */
-/*   Updated: 2025/08/31 13:21:22 by texenber         ###   ########.fr       */
+/*   Updated: 2025/09/03 09:38:45 by texenber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define GREEN 0x00FF00
 # define RED 0xFF0000
 # define BLUE 0x0000FF
+# define PINK 0xFF33FF
 # define COOLBLUE 0x0066FF
 
 // libraries

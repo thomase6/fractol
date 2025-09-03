@@ -6,7 +6,7 @@
 /*   By: texenber <texenber@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 10:38:19 by texenber          #+#    #+#             */
-/*   Updated: 2025/09/01 09:17:44 by texenber         ###   ########.fr       */
+/*   Updated: 2025/09/03 07:52:47 by texenber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	data_init(t_data *data)
 {
 	data->escape_value = 4;
-	data->iter_def = 100;
+	data->iter_def = 80;
 	data->shift_x = 0.0;
 	data->shift_y = 0.0;
 	data->zoom = 1.0;

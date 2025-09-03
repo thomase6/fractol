@@ -6,7 +6,7 @@
 /*   By: texenber <texenber@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 14:00:09 by texenber          #+#    #+#             */
-/*   Updated: 2025/09/01 09:27:25 by texenber         ###   ########.fr       */
+/*   Updated: 2025/09/03 09:44:41 by texenber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	mandelbrot(t_complex z, int x, int y, t_data *data)
 	c.x = z.x;
 	c.y = z.y;
 	i = 0;
-	while (i < data->iter_def && (z.x * z.x + z.y * z.y <= 4))
+	while (i < data->iter_def && (z.x * z.x + z.y * z.y < data->escape_value))
 	{
 		z = sum_complex(square_complex(z), c);
 		i++;
@@ -50,13 +50,13 @@ void	julia(t_complex z, int x, int y, t_data *data)
 	c.x = data->j_x;
 	c.y = data->j_y;
 	i = 0;
-	while (i < data->iter_def && (z.x * z.x + z.y * z.y < 4))
+	while (i < data->iter_def && (z.x * z.x + z.y * z.y < data->escape_value))
 	{
 		z = sum_complex(square_complex(z), c);
 		i++;
 	}
 	if (i < data->iter_def)
-		color = map(i + 1, GREEN, BLUE, data->iter_def);
+		color = map(i, GREEN, BLUE, data->iter_def);
 	else
 		color = BLACK;
 	my_mlx_put_pixel(&data->img, x, y, color);
