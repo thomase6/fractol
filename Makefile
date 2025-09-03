@@ -24,7 +24,7 @@ MLX_LIB := $(MLX_DIR)/minilibx.a
 
 CC := cc
 CFLAGS := -Wall -Werror -Wextra
-CPPFLAGS := -I$(LIBFT_DIR) -I$(MLX_DIR) -I$(PRINTF_DIR)
+CFLAGS += -I$(LIBFT_DIR) -I$(MLX_DIR) -I$(PRINTF_DIR)
 LIBS := -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
 
 #utensils
@@ -37,7 +37,7 @@ DIR_DUP = mkdir -p $(@D)
 all: $(LIBFT_LIB) $(MLX_LIB) $(PRINTF_LIB) $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(CPPFLAGS) $^ -L$(LIBFT_DIR) -lft -L$(PRINTF_DIR) -lftprintf $(LIBS) -o $@
+	$(CC) $(CFLAGS) $^ -L$(LIBFT_DIR) -lft -L$(PRINTF_DIR) -lftprintf $(LIBS) -o $@
 	$(info CREATED $(NAME))
 
 $(LIBFT_LIB):
@@ -51,7 +51,7 @@ $(PRINTF_LIB):
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(DIR_DUP)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $<
 	$(info CREATED $@)
 
 clean:
