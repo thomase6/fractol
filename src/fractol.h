@@ -6,7 +6,7 @@
 /*   By: texenber <texenber@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 08:49:44 by texenber          #+#    #+#             */
-/*   Updated: 2025/09/03 09:38:45 by texenber         ###   ########.fr       */
+/*   Updated: 2025/09/03 11:04:59 by texenber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,8 @@ typedef struct s_data
 
 int			main(int ac, char **av);
 
-// *** libft and printf functions ***
-int			ft_strncmp(const char *s1, const char *s2, size_t n);
-size_t		ft_strlen(const char *s);
-int			ft_printf(const char *format, ...);
-double		ft_atof(char *str);
+// *** input_validation.c ***
+void		input_validation(int ac, char **av, t_data *data);
 
 // *** mlx_utils.c ***
 void		data_init(t_data *data);

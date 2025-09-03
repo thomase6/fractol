@@ -8,7 +8,8 @@ SRCS := \
 	window_init.c\
 	mlx_utils.c\
 	math_utils.c\
-	fractal_render.c
+	fractal_render.c\
+	input_validation.c
 SRCS := $(SRCS:%=$(SRC_DIR)/%)
 OBJS := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
